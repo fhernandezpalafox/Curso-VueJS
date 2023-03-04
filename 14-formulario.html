@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://unpkg.com/vue@next"></script> <!--Importamos Vue 3-->
+</head>
+<body>
+ <div id="app">
+   <p>
+     <select v-model="dia" multiple>
+       <option>Lunes</option>
+       <option>Martes</option>
+       <option>Miércoles</option>
+       <option>Jueves</option>
+       <option>Viernes</option>
+       <option>Sábado</option>
+       <option>Domingo</option>
+     </select>
+   </p>
+   <p>Día seleccionado:{{dia}}</p>
+ </div>
+ <script>
+   const app = Vue.createApp({
+       data() {
+           return {
+               dia: []
+           }
+       }
+   }).mount('#app')
+ </script>
+</body>
+</html>

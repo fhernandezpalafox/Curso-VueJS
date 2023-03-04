@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://unpkg.com/vue@next"></script> <!--Importamos Vue 3-->
+</head>
+<body>
+ <div id="app">
+   <p>
+     <textarea v-model="comentarios" cols="100" rows="5" maxlength="200"></textarea>
+   </p>
+   <p>Cantidad de caracteres ingresados: {{comentarios.length}}</p>
+ </div>
+ <script>
+   const app = Vue.createApp({
+       data() {
+           return {
+               comentarios: ''
+           }
+       }
+   }).mount('#app')
+ </script>
+</body>
+</html>

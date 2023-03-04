@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://unpkg.com/vue@next"></script> <!--Importamos Vue 3-->
+</head>
+<body>
+  <div id="app">
+    <p>Ingrese su nombre:<input type="text" v-model="nombre"></p>
+    <p>Ingrese su apellido:<input type="text" v-model="apellido"></p>
+    <p>Nombre completo: {{nombreCompleto}}</p>
+  </div>
+  <script>
+   const app = Vue.createApp({
+       data() {
+           return {
+               nombre: '',
+               apellido: ''
+           }
+       },
+       computed:{
+           nombreCompleto() {
+               return this.nombre + ' ' + this.apellido;
+           }
+       }
+   }).mount('#app')
+  </script>
+</body>
+</html>

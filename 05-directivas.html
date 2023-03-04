@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <ul>
+      <li v-for="lenguaje in lenguajes" :key="lenguaje">{{lenguaje}}</li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>   
+  <script>
+    const app = Vue.createApp({
+      data() { 
+        return {
+          lenguajes: ['C', 'C++', 'C#', 'Java', 'Ruby', 'Kotlin']
+        }
+      }
+    })
+    app.mount('#aplicacion')
+  </script>
+</body>
+</html>

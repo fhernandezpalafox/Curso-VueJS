@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="app">
+    Ingrese su nombre:
+    <input type="text" v-model="nombre">
+    <p>{{nombre}}</p>
+    <p>{{nombre}}</p>
+    <p>{{nombre}}</p>
+  </div>
+  <script src="https://unpkg.com/vue@3.2.13/dist/vue.global.js"></script>   
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          nombre: ''
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html> 

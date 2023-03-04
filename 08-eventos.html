@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <h1>Listado de actividades</h1>
+    <ol>
+      <li v-for="actividad in actividades" :key="actividad">
+        {{actividad}}
+      </li>
+    </ol>
+    Nueva actividad:<input type="text" v-model="actividad" placeholder="Enter para confirmar" @keyup.enter="actualizarLista">
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          actividad: '',
+          actividades: []
+        }
+      },
+      methods: {
+        actualizarLista() {
+          this.actividades.push(this.actividad);
+          this.actividad = '';
+        }
+      }
+    })
+    app.mount('#aplicacion')
+  </script>
+</body>
+</html>
