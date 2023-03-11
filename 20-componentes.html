@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <HolaMundo idioma="ingles"></HolaMundo>
+    <HolaMundo idioma="castellano"></HolaMundo>
+  </div>
+ 
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const HolaMundo = {
+      props: ['idioma'],
+      template: `
+        <div>
+          <p v-if="idioma === 'castellano'">Hola mundo</p>
+          <p v-else-if="idioma === 'ingles'">Hello world</p>
+        </div>
+      `
+    };
+
+    const app = Vue.createApp({
+      components: {
+        HolaMundo
+      }
+    });
+
+    app.mount('#aplicacion');
+  </script>
+</body>
+</html>

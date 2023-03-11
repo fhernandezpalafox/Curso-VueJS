@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <button @click="recuperarPost">Recuperar Post</button>
+    <div v-for="nota in notas" :key="nota.id">
+      <h1>{{nota.title}}</h1>
+      {{nota.body}}
+      <hr>
+    </div>
+  </div>
+ 
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+const app = Vue.createApp({
+      data() {
+        return { 
+          notas: []
+        }
+      },
+      methods: {
+        recuperarPost() {
+          axios.get('https://jsonplaceholder.typicode.com/posts').then((respuesta) => {
+            this.notas = respuesta.data             
+          })
+        }
+      }
+    })
+    
+app.mount('#aplicacion')
+  </script>
+</body>
+</html>
