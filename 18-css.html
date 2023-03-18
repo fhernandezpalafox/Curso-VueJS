@@ -1,61 +1,74 @@
 <!doctype html>
 <html>
+
 <head>
-  <title>Prueba Vue</title> 
+  <title>Prueba Vue</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <style>
     .faltastock {
       background-color: yellow;
       color: blue;
-      font-style: italic;            
+      font-style: italic;
     }
   </style>
 </head>
+
 <body>
   <div id="aplicacion">
-    <table border="1">
-      <tr><td>Código</td><td>Descripción</td><td>Precio</td><td>Stock</td></tr>
+    <table>
+      <tr>
+        <td>Código</td>
+        <td>Descripción</td>
+        <td>Precio</td>
+        <td>Stock</td>
+      </tr>
       <template v-for="articulo in articulos">
         <tr :class="{faltastock: articulo.stock===0}">
           <td>{{articulo.codigo}}</td>
           <td>{{articulo.descripcion}}</td>
           <td>{{articulo.precio}}</td>
-          <td>{{articulo.stock}}</td>          
+          <td>{{articulo.stock}}</td>
         </tr>
       </template>
     </table>
   </div>
- 
+
   <script src="https://unpkg.com/vue@next"></script>
   <script>
     const app = Vue.createApp({
-      data(){ 
+      data() {
         return {
           articulos: [
             {
-              codigo: 1, 
+              codigo: 1,
               descripcion: 'papas',
               precio: 12.52,
-              stock: 10
+              stock: 1
             },
             {
-              codigo: 2, 
+              codigo: 2,
               descripcion: 'naranjas',
               precio: 21,
               stock: 0
             },
             {
-              codigo: 3, 
+              codigo: 3,
               descripcion: 'peras',
               precio: 18.20,
               stock: 0
             },
             {
-              codigo: 4, 
+              codigo: 4,
               descripcion: 'duraznos',
               precio: 35,
-              stock: 20                     
+              stock: 20
+            },
+            {
+              codigo: 5,
+              descripcion: 'manzanas',
+              precio: 123,
+              stock: 100
             }
           ]
         }
@@ -64,4 +77,5 @@
     app.mount('#aplicacion')
   </script>
 </body>
+
 </html>
