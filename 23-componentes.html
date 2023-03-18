@@ -23,11 +23,6 @@
                             <button @click="incrementar()">+</button>
                             <button @click="decrementar()">-</button>
                         </div>`,
-            computed: {
-                cant() {
-                    return this.valor;
-                }
-            },
             methods: {
                 incrementar() {
                     if (this.cant < this.maximo)
