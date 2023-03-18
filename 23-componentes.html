@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion">
+        <selector-numerico 
+                v-bind:valor="1" 
+                v-bind:minimo="0" 
+                v-bind:maximo="20"></selector-numerico>
+    </div>
+
+    <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+    <script>
+        const selectorNumerico = {
+            props: ['valor', 'minimo', 'maximo'],
+            template: `<div><span style="width:1rem;display:inline-block;background:#ff0">{{cant}}</span>
+                            <button @click="incrementar()">+</button>
+                            <button @click="decrementar()">-</button>
+                        </div>`,
+            computed: {
+                cant() {
+                    return this.valor;
+                }
+            },
+            methods: {
+                incrementar() {
+                    if (this.cant < this.maximo)
+                    this.cant++;
+                },
+                decrementar() {
+                    if (this.cant > this.minimo)
+                    this.cant--;
+                }
+            },
+            data() {
+                return {
+                    cant: this.valor
+                }
+            }  
+        };
+
+        
+        const app = Vue.createApp({
+            components: {
+                'selector-numerico': selectorNumerico
+            },
+            isCustomElement: tag => tag.startsWith('selector-'),
+        });
+
+        app.mount('#aplicacion');
+
+    </script>
+</body>
+
+</html>

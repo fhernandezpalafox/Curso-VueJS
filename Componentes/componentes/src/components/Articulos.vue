@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'Articulos',
+  name: 'ArticulosTabla',
   props: {
     datos: Array
   }

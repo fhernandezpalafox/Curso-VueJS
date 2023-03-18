@@ -7,23 +7,23 @@
 </head>
 <body>
   <div id="aplicacion">
-    <hola-mundo idioma="ingles"></hola-mundo>
-    <hola-mundo idioma="castellano"></hola-mundo>
+    <hola-mundo 
+        color="red" 
+        size="35px"></hola-mundo>
   </div>
  
   <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
 
-  <script>
-    const HolaMundo = {
-      props: ['idioma'],
+<script>
+  const HolaMundo = {
+      props: ['color','size'],
       template: `
         <div>
-          <p v-if="idioma === 'castellano'">Hola mundo</p>
-          <p v-else-if="idioma === 'ingles'">Hello world</p>
+          <p :style="{color: color, fontSize: size}"> Hola mundo </p>
         </div>
       `
     };
-
+      
     const app = Vue.createApp({
       components: {
         'hola-mundo': HolaMundo
@@ -32,6 +32,6 @@
     });
 
     app.mount('#aplicacion');
-  </script>
+</script>
 </body>
 </html>

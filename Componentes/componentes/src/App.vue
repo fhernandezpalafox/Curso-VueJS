@@ -1,48 +1,54 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Welcome to Your Vue.js App" />
 
-    <div id="aplicacion">
-      <AppIdioma idioma="ingles" />
-      <AppIdioma idioma="castellano" />
-    </div>
-    
-    <br/>
-    <br/>
-    <Articulos v-bind:datos="datos" />
+  <div id="aplicacion">
+    <AppIdioma idioma="ingles" />
+    <AppIdioma idioma="castellano" />
+  </div>
+
+  <br />
+  <br />
+  <div style="display: flex;justify-content: center;">
+    <ArticulosTabla v-bind:datos="datos" />
+  </div>
   
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import AppIdioma from './components/Idioma.vue'
-import Articulos from './components/Articulos.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import AppIdioma from "./components/Idioma.vue";
+import ArticulosTabla from "./components/Articulos.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld,
     AppIdioma,
-    Articulos
+    ArticulosTabla,
   },
   data() {
     return {
-      datos: [{
-        codigo: 1, 
-        descripcion: 'papas',
-        precio: 12.52
-      },{
-        codigo: 2, 
-        descripcion: 'naranjas',
-        precio: 21
-      },{
-        codigo: 3, 
-        descripcion: 'peras',
-        precio: 18.20
-      }]
-    }
-  }
-}
+      datos: [
+        {
+          codigo: 1,
+          descripcion: "papas",
+          precio: 12.52,
+        },
+        {
+          codigo: 2,
+          descripcion: "naranjas",
+          precio: 21,
+        },
+        {
+          codigo: 3,
+          descripcion: "peras",
+          precio: 18.2,
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
